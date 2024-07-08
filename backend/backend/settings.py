@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 
     # TODO : Applications
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
