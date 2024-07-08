@@ -130,6 +130,43 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# TODO : Postgres database 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'HOST': config('DB_HOST'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#     }
+# }
+
+
+# TODO : Config the logging and loggers
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'django_queries.log',  # Choose a file name and path
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+}
+
+
 # TODO : Config the Images path
 MEDIA_URL  = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
@@ -201,9 +238,9 @@ SIMPLE_JWT = {
 
 # TODO : React development and production server Port
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:5000",
-    "http://localhost:5000",
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
     
-    "http://192.168.1.53:5000",
+    "http://192.168.1.53:5173",
 ]
 CORS_ALLOW_CREDENTIALS = True
